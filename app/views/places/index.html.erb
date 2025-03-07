@@ -2,10 +2,18 @@
 
 <ul>
   <% for place in @places %>
-    <li><a href="/places/<%= place["id"] %>"><%= place["name"] %></a></li>
+    <%if @current_user%>
+      <li><a href="/places/<%= place["id"] %>"><%= place["name"] %></a></li>
+    <%else%>
+      <li><%= place["name"] %></li> <!--only let people click into places if they are logged in-->
+    <%end%>
   <% end %>
 </ul>
 
 <p>
-  <a href="/places/new">New place</a>
+  <%if @current_user%>
+    <a href="/places/new">New place</a>
+  <%else%>
+    <a href="/login">Login to Add Places!<a>
+  <%end%>
 </p>
