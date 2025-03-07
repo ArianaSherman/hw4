@@ -1,5 +1,13 @@
 <h1>Places</h1>
 
+<p>
+  <%if @current_user%>
+    <a class="btn btn-primary" href="/places/new" role="button">New Place</a>
+  <%else%>
+    <a class="btn btn-primary" href="/login" role="button">Login to Add Places!</a>
+  <%end%>
+</p>
+
 <ul>
   <% for place in @places %>
     <%if @current_user%>
@@ -9,11 +17,3 @@
     <%end%>
   <% end %>
 </ul>
-
-<p>
-  <%if @current_user%>
-    <a class="btn btn-primary" href="/places/new" role="button">New Place</a>
-  <%else%>
-    <a class="btn btn-primary" href="/login" role="button">Login to Add Places!</a>
-  <%end%>
-</p>
