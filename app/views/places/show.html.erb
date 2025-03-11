@@ -12,7 +12,10 @@
       <h4><%= entry["title"] %></h4>
       <h4><%= entry["occurred_on"] %></h4>
       <p><%= entry["description"] %></p>
-      <img src="<%= url_for(post.uploaded_image)%>" class="img-fluid">
+      <%if entry.uploaded_image.attached? %>
+        <img src="<%= url_for(entry.uploaded_image)%>" class="img-fluid">
+      <%else%>
+      <%end%>
     </div></div>
   <% end %>
 </div>
